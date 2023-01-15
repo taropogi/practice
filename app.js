@@ -1,21 +1,18 @@
 "use strict";
 
-// constructor functions
-const Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
-};
+class ClPerson {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
 
-// prototypes
-Car.prototype.accelerate = function () {
-  this.speed += 10;
-  console.log(this.speed);
-};
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+}
 
-Car.prototype.brake = function () {
-  this.speed -= 5;
-  console.log(this.speed);
-};
+const chad = new ClPerson("Richard", 1999);
 
-const car1 = new Car("BMW", 120);
-const car2 = new Car("Mercedes", 95);
+chad.calcAge();
+
+console.log(chad.__proto__ === ClPerson.prototype);
